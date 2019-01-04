@@ -16,16 +16,16 @@ react.
 - [lodash](https://lodash.com/docs/4.17.11)
 
 
-### Examplar Project
+### Exemplar Project
 
-We will work together to make an examplar web app that utilizes all the tools we
+We will work together to make an exemplar web app that utilizes all the tools we
 learn. The app will be a resource platform, aggregating various books, videos,
 and articles about a particular tech topic. It will need to support the
 following:
 
 - input from the user for the topic they are interested in. This could be in the
-  form of free text, or selecting from a currated list
-- integrating and retreiving items from various sources to get the latest/most
+  form of free text, or selecting from a curated list
+- integrating and retrieving items from various sources to get the latest/most
   popular matches based on the provided user search
 - displaying that content to the user in a useful way (e.g if video, should be
   playable)
