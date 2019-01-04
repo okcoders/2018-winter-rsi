@@ -37,6 +37,7 @@ Some example sources to integrate with:
 - [youtube](https://developers.google.com/youtube/v3/)
 - [wiki](https://en.wikipedia.org/api/rest_v1/#!/Page_content/get_page_html_title)
 - [news api](https://newsapi.org/)
+- [google books](https://developers.google.com/books/docs/v1/using)
 
 
 ### Timeline:
