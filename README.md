@@ -6,14 +6,13 @@ react.
 ### Some tools:
 
 - [reactjs](https://reactjs.org/)
-- [redux](https://redux.js.org/)
 - [create react app](https://github.com/facebook/create-react-app)
 - [routing](https://reacttraining.com/react-router/)
-- [routing with redux](https://github.com/faceyspacey/redux-first-router)
 - [styled components](https://www.styled-components.com/)
 - [antd](https://ant.design/)
-- [redux thunk](https://github.com/reduxjs/redux-thunk)
 - [lodash](https://lodash.com/docs/4.17.11)
+- [redux](https://redux.js.org/)
+- [redux thunk](https://github.com/reduxjs/redux-thunk)
 
 
 ### Exemplar Project
