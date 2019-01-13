@@ -67,6 +67,7 @@ Intro to react
 #### Between Class
 
 - review [docs](https://reactjs.org/docs/react-component.html) on component lifecycle
+- work on project
 
 #### Class 3
 
