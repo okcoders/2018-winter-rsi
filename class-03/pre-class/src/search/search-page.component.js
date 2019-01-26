@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchInput } from './search-input.component'
+import { SearchInputWithRouter } from './search-input.component'
 import { SearchResults } from './search-results.component'
 import { get } from 'lodash'
 
@@ -14,7 +14,7 @@ export class SearchPage extends React.Component {
   render() {
     return (
       <>
-        <SearchInput populateResults={this.populateResults} />
+        <SearchInputWithRouter populateResults={this.populateResults} />
         <SearchResults results={this.resolveResults()} />
       </>
     )

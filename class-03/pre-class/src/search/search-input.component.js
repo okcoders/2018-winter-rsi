@@ -1,6 +1,7 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd'
 import styled from 'styled-components'
+import { withRouter } from 'react-router-dom'
 
 const StyledForm = styled(Form)`
   width: 50%;
@@ -10,10 +11,17 @@ const StyledForm = styled(Form)`
 export class SearchInput extends React.Component {
     constructor(props) {
         super(props)
+        console.log(props)
         this.state = {
-            queryString: '',
+            queryString: resolveQueryString(this.props.location.search),
             searchSubmitted: false,
         }
+    }
+
+    componentDidMount() {
+      if (this.state.queryString) {
+        this.fetchPosts()
+      }
     }
 
     fetchPosts = () => {
@@ -53,3 +61,10 @@ export class SearchInput extends React.Component {
         )
     }
 }
+
+function resolveQueryString(search) {
+  const searchItems = search.split("=")
+  return searchItems[1] || ''
+}
+
+export const SearchInputWithRouter = withRouter(SearchInput)
