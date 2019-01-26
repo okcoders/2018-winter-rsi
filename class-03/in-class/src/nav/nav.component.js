@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu } from 'antd'
 import { withRouter } from 'react-router-dom'
+import { showAdmin } from '../restricted/selectors'
 
 class NavWithoutRouter extends React.Component {
     constructor(props) {
@@ -34,6 +35,7 @@ class NavWithoutRouter extends React.Component {
             >
               <Menu.Item key="search">Search</Menu.Item>
               <Menu.Item key="history">History</Menu.Item>
+              {showAdmin(this.props.user) && <Menu.Item key="admin">Admin</Menu.Item>}
             </Menu>
         )
     }

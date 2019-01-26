@@ -24,7 +24,7 @@ export class SearchPage extends React.Component {
   }
 
   resolveResults() {
-      return get(this.state.results, 'data', [])
+      return get(this.state.results, 'items', [])
   }
 
 }

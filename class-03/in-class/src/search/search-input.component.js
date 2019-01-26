@@ -2,19 +2,36 @@ import React from 'react'
 import {
     Form, Input, Button,
   } from 'antd';
+import { withRouter } from 'react-router-dom'
+import styled from 'styled-components'
 
-export default class SearchInput extends React.Component {
+const StyledForm = styled(Form)`
+  width: 40%
+  margin: auto !important
+`
+
+class SearchInputComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            queryString: '',
+            queryString: this.parseQueryString(),
         }
     }
 
-    fetchBooks = () => {
-        // fetch(`${resourceUri}api/books`)
-        //   .then(res => res.json())
-        //   .then(json => this.props.populateResults(json))
+    parseQueryString() {
+        const split = this.props.location.search.split("=")
+        return split[1] ? split[1]: ''
+    }
+
+    componentDidMount() {
+        this.fetchPosts()
+    }
+
+    fetchPosts = () => {
+        const url = `https://api.stackexchange.com/2.2/search?order=desc&sort=votes&tagged=${this.state.queryString}&site=stackoverflow`
+        fetch(url)
+          .then(res => res.json())
+          .then(json => this.props.populateResults(json))
     }
 
     onSearchChange = (e) => {
@@ -27,13 +44,14 @@ export default class SearchInput extends React.Component {
 
     onSubmit = (e) => {
       e.preventDefault()
-      this.fetchBooks()
+      this.fetchPosts()
+      this.props.history.push(`/search?query=${this.state.queryString}`)
     }
 
     render() {
         return (
             <>
-            <Form layout="inline" onSubmit={this.onSubmit}>
+            <StyledForm onSubmit={this.onSubmit}>
                 <Form.Item>
                     <Input 
                         value={this.state.queryString} 
@@ -49,8 +67,10 @@ export default class SearchInput extends React.Component {
                    Submit 
                 </Button>
                 </Form.Item>
-            </Form>
+            </StyledForm>
             </>
         )
     }
 }
+
+export default withRouter(SearchInputComponent)

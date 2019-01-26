@@ -2,20 +2,10 @@ import React from 'react'
 
 export default class SearchResults extends React.PureComponent {
     constructor(props) {
-        console.log("constructor")
         super(props)
     }
 
-    componentDidMount() {
-        console.log("componentDidMount")
-    }
-
-    componentDidUpdate() {
-        console.log("componentDidUpdate")
-    }
-
     render() {
-        console.log("render")
         return (
             <div>
                 <ul>
@@ -24,14 +14,10 @@ export default class SearchResults extends React.PureComponent {
             </div>
         )
     }
-
-    componentWillUnmount() {
-        console.log("componentWillUnmount")
-    }
 }
 
 function renderSearchResult(result) {
     return (
-        <li key={result.name}>{result.name}: {result.year}</li>
+        <li key={result.question_id}>{result.title}: {result.tags.join(", ")}</li>
     )
 }

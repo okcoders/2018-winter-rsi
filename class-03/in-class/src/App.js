@@ -9,20 +9,32 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 import { SearchPage } from './search/search-page.component'
 import { HistoryPage } from './history/history-page.component'
 import { Nav } from './nav/nav.component'
+import { AdminPage } from './admin/admin.component'
 
 const { Header, Content, Footer } = Layout;
 
 class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      user: {
+        firstName: "zach",
+        type: "fjkdsal"
+      }
+    }
+
+  }
   render() {
     return (
       <BrowserRouter >
         <Layout className="layout">
           <Header>
-            <Nav />
+            <Nav user={this.state.user} />
           </Header>
           <Content style={{ padding: '0 50px' }}>
             <Route path="/search" component={SearchPage} />
             <Route path="/history" component={HistoryPage} />
+            <Route path="/admin" render={props => <AdminPage {...props} user={this.state.user} />} />
           </Content>
           <Footer style={{ textAlign: 'center' }}>
           Footer!
