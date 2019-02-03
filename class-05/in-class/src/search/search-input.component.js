@@ -20,14 +20,9 @@ export class SearchInput extends React.Component {
 
   componentDidMount() {
     if (this.state.queryString) {
+      this.props.submitSearch(this.state.queryString);
     }
   }
-
-  // fetchPosts = () => {
-  //     fetch(`https://api.stackexchange.com/2.2/search?order=desc&sort=votes&tagged=${this.state.queryString}&site=stackoverflow`)
-  //       .then(res => res.json())
-  //       .then(json => this.props.populateResults(json))
-  // }
 
   onSearchChange = e => {
     this.setState({ queryString: e.target.value });
